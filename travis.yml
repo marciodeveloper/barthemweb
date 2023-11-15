@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - '7.4'
+
+services:
+  - mysql
+
+before_script:
+  - composer install --prefer-dist --no-interaction
+  - cp .env.example .env
+  - php artisan key:generate
+
+script:
+  - phpunit
