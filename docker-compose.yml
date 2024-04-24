@@ -2,13 +2,10 @@ version: '3'
 services:
   wordpress:
     build: .
+    env_file:
+      - .env
     ports:
       - "8080:80"
-    environment:
-      - WORDPRESS_DB_HOST: db
-      - WORDPRESS_DB_USER: barthemweb
-      - WORDPRESS_DB_PASSWORD: J!o9s8e2
-      - WORDPRESS_DB_NAME: barthemweb
     depends_on:
       - db
     networks:
@@ -16,10 +13,8 @@ services:
 
   db:
     image: mysql:8
-    MYSQL_DATABASE: db
-    MYSQL_USER: user
-    MYSQL_PASSWORD: 12345
-    MYSQL_RANDOM_ROOT_PASSWORD: "1"
+    env_file:
+      - .env
     networks:
       - mynetwork
       
@@ -29,4 +24,4 @@ redis:
     - mynetwork
 
 networks:
-  mynetwork
+  - mynetwork

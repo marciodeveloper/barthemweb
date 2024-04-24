@@ -1,4 +1,7 @@
 {
+    "name": "barthemweb/barthemweb",
+    "description": "Um projeto Wordpress com implementação de containers Docker, teste unitários e otimização de cache do Redis.",
+    "license": "proprietary",
     "require": {
         "vlucas/phpdotenv": "^5.6"
     },
